@@ -1,0 +1,106 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7; /* Soft gray background */
+  color: #333; /* Dark gray text for readability */
+  font-family: 'Arial', sans-serif;
+  background-image: radial-gradient(#ffb3c6 2px, transparent 0.5px);
+  background-size: 50px 50px; /* Size of the grid */
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewport="0 0 32 32" style="fill:none; stroke:pink; stroke-width:2;"><path d="M16 0 C7.16 0 0 7.16 0 16 C0 24.84 16 32 16 32 C16 32 32 24.84 32 16 C32 7.16 24.84 0 16 0 Z"/></svg>'), auto; /* Optional: custom cursor */
+}
+
+
+.greeting-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh; /* Full height of the viewport */
+  text-align: center;
+  background: #ffe0f0; /* Light pink background */
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Space between images */
+  transition: opacity 1s ease;
+  will-change: opacity, transform;
+}
+
+.image {
+  display: block; /* Remove extra space below the image */
+  max-width: 100%; /* Ensure the image does not overflow its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* When the class 'visible' is added, the image container fades in */
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* Reset any transform */
+}
+
+/* Styling for each image wrapper */
+.image-effect-wrapper {
+  width: 100%; /* Take the full width of the parent */
+  display: flex;
+  justify-content: center; /* Center the image within the wrapper */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.image-effect-wrapper:hover {
+  transform: translateY(-5px);
+}
+.image-container.visible .caption {
+  opacity: 1;
+}
+
+.fade-in {
+  width: 90vw; /* Responsive width */
+  max-width: 600px; /* Maximum size of images */
+  margin: 20px auto; /* Centering images */
+  will-change: opacity; /* Optimizes animations */
+  transition: opacity 1s ease-in-out; /* Smooth transition for fade-in */
+}
+
+.fade-in {
+  position: relative;
+
+}
+.image.visible {
+  opacity: 1;
+}
+
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+  color: white;
+  padding: 10px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  opacity: 0; /* Hidden by default */
+}
+
+.image.visible + .caption {
+  opacity: 1; /* Show the caption when the image is visible */
+}
+
+/* Reveal caption when the image is in view */
+.fade-in.visible .caption {
+  opacity: 1;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .fade-in {
+    width: 95vw;
+  }
+}
