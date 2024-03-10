@@ -3,9 +3,16 @@ import { useSpring, animated } from "react-spring";
 
 const ImageWithEffect = ({ src, alt, caption }) => {
   const [inView, setInView] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const imgRef = useRef(null);
 
-  const props = useSpring({ opacity: inView ? 1 : 0 });
+  const props = useSpring({
+    to: {
+      opacity: inView ? 1 : 0,
+      transform: hovered ? "translateY(-10px)" : "translateY(0px)",
+    },
+    config: { mass: 1, tension: 280, friction: 60 },
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,7 +40,13 @@ const ImageWithEffect = ({ src, alt, caption }) => {
   }, []);
 
   return (
-    <animated.div style={props} ref={imgRef} className="fade-in">
+    <animated.div
+      style={props}
+      ref={imgRef}
+      className="fade-in image-effect-wrapper"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       {inView && (
         <>
           <img
