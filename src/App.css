@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
 body, html {
   margin: 0;
   padding: 0;
@@ -6,8 +8,21 @@ body, html {
   font-family: 'Arial', sans-serif;
   background-image: radial-gradient(#ffb3c6 2px, transparent 0.5px);
   background-size: 50px 50px; /* Size of the grid */
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewport="0 0 32 32" style="fill:none; stroke:pink; stroke-width:2;"><path d="M16 0 C7.16 0 0 7.16 0 16 C0 24.84 16 32 16 32 C16 32 32 24.84 32 16 C32 7.16 24.84 0 16 0 Z"/></svg>'), auto; /* Optional: custom cursor */
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="none" stroke="pink" stroke-width="2"/></svg>'), auto; /* Circle cursor */
 }
+
+.handwritten {
+  font-family: 'Caveat', cursive;
+  position: absolute;
+  bottom: 0%; /* You can adjust this value to position the text */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px; /* Adjust as needed */
+  color: #333;
+  white-space: nowrap;
+  pointer-events: none; /* Makes the text non-interactive */
+}
+
 
 
 .greeting-container {

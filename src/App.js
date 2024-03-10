@@ -121,6 +121,8 @@ const App = () => {
           much and you genuinely are the <b>best</b> mother I could get. I hope
           you know how lucky we are to be your kids and live with you every day.
         </p>
+
+        <p className="handwritten">Scroll down...</p>
       </div>
       <div className="image-container">
         {images.map((image, index) => (
